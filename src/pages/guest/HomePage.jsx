@@ -1,6 +1,7 @@
 function HomePage() {
   return (
    <>
+   <p>Home Page lol</p>
    </>
   );
 }
