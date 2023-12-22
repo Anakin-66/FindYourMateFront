@@ -11,6 +11,7 @@ import CreateProfilePage from "./pages/guest/CreateProfilePage";
 // Import côté admin
 import DashboardPage from "./pages/admin/DashboardPage";
 import AdminProfilesPage from "./pages/admin/AdminProfilesPage";
+import AdminProfilesUpdatePage from "./pages/admin/AdminProfilesUpdatePage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
 
 
@@ -31,6 +32,7 @@ function App() {
         {/* Admin */}
         <Route path="/admin" element={<DashboardPage />} />
         <Route path="/admin/profils" element={<AdminProfilesPage />} />
+        <Route path="/admin/profils/update/:id" element={<AdminProfilesUpdatePage />} />
         <Route path="/admin/users" element={<AdminUsersPage />} />
 
 
