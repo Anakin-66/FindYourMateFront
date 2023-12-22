@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// Import côté guest
 import HomePage from "./pages/guest/HomePage";
 import ContactPage from "./pages/guest/ContactPage";
 import ProfilePage from "./pages/guest/ProfilePage";
@@ -7,16 +8,11 @@ import LoginPage from "./pages/guest/LoginPage";
 import OwnProfilePage from "./pages/guest/OwnProfilePage";
 import RegisterPage from "./pages/guest/RegisterPage";
 import CreateProfilePage from "./pages/guest/CreateProfilePage";
-
+// Import côté admin
 import DashboardPage from "./pages/admin/DashboardPage";
+import AdminProfilesPage from "./pages/admin/AdminProfilesPage";
+import AdminUsersPage from "./pages/admin/AdminUsersPage";
 
-import AdminProfileCreate from "./pages/admin/AdminProfile/AdminProfileCreate";
-import AdminProfileUpdate from "./pages/admin/AdminProfile/AdminProfileUpdate";
-import AdminProfileDelete from "./pages/admin/AdminProfile/AdminProfileDelete";
-
-import AdminUserCreate from "./pages/admin/AdminUser/AdminUserCreate";
-import AdminUserUpdate from "./pages/admin/AdminUser/AdminUserUpdate";
-import AdminUserDelete from "./pages/admin/AdminUser/AdminUserDelete";
 
 function App() {
   return (
@@ -34,14 +30,10 @@ function App() {
 
         {/* Admin */}
         <Route path="/admin" element={<DashboardPage />} />
+        <Route path="/admin/profils" element={<AdminProfilesPage />} />
+        <Route path="/admin/users" element={<AdminUsersPage />} />
 
-        <Route path="/admin/profils/create" element={<AdminProfileCreate />} />
-        <Route path="/admin/profils/update" element={<AdminProfileUpdate />} />
-        <Route path="/admin/profils/delete" element={<AdminProfileDelete />} />
 
-        <Route path="/admin/users/create" element={<AdminUserCreate />} />
-        <Route path="/admin/users/update" element={<AdminUserUpdate/>} />
-        <Route path="/admin/users/delete" element={<AdminUserDelete />} />
 
       </Routes>
     </BrowserRouter >

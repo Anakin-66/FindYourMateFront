@@ -1,36 +1,36 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function HeaderAdmin() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // sortir le token du local storage
+    localStorage.removeItem("jwt");
+
+    // redirige l'utilisateur vers la page de login
+    navigate("/login");
+  };
+
   return (
     <header>
       <nav>
         <ul>
           <li>
-            <Link to="/admin/">Dashboard</Link>
+            <Link to="/admin">Dashboard</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link to="/admin/profils/create">Créer un profil</Link>
-          </li>
-          <li>
-            <Link to="/admin/profils/update">Mettre à jour un profil</Link>
-          </li>
-          <li>
-            <Link to="/admin/profils/delete">Supprimer un profil</Link>
+            <Link to="/admin/profils">Gérer les profils</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link to="/admin/users/create">Créer un utilisateur</Link>
-          </li>
-          <li>
-            <Link to="/admin/users/update">Mettre à jour un utilisateur</Link>
-          </li>
-          <li>
-            <Link to="/admin/users/delete">Supprimer un utilisateur</Link>
+            <Link to="/admin/users">Gérer les utilisateurs</Link>
           </li>
         </ul>
+        <button onClick={handleLogout}>Se déconnecter</button>
       </nav>
     </header>
   );
