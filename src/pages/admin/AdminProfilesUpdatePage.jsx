@@ -17,6 +17,7 @@ function AdminProfilesUpdatePage() {
             const profileResponse = await fetch("http://localhost:3001/api/profils/" + id);
             const profileResponseData = await profileResponse.json();
             setProfile(profileResponseData.data);
+            console.log(profileResponseData.data);
         })();
     }, []);
 
@@ -29,8 +30,8 @@ function AdminProfilesUpdatePage() {
         // On récupère les champs du formulaire
         const inGameName = event.target.inGameName.value;
         const profileBio = event.target.profileBio.value;
-        // const ranksLabel = event.target.ranksLabel.value;
-        // const gameRoleLabel = event.target.gameRoleLabel.value;
+        const ranksLabel = event.target.ranksLabel.value;
+        const gameRoleLabel = event.target.gameRoleLabel.value;
 
 
 
@@ -38,18 +39,19 @@ function AdminProfilesUpdatePage() {
         const profileUpdateData = {
             inGameName: inGameName,
             profilBio: profileBio,
-            // GameRank: {
-            //     ranksLabel: ranksLabel
-            // },
-            // GameRole: {
-            //     gameRoleLabel: gameRoleLabel
-            // },
+            GameRank: {
+                ranksLabel: ranksLabel
+            },
+            GameRole: {
+                gameRoleLabel: gameRoleLabel
+            },
         };
 
         // Conversion en json
         const profileUpdateDataJson = JSON.stringify(profileUpdateData);
         // récupération du token
         const token = localStorage.getItem("jwt");
+        console.log(profileUpdateData);
         // fetching des coworkings + leur id respectif
         const updateProfileResponse = await fetch("http://localhost:3001/api/profils/" + id, {
             // La méthode est un "PUT"
@@ -61,6 +63,7 @@ function AdminProfilesUpdatePage() {
             // Récupération du contenu du body
             body: profileUpdateDataJson
         })
+        console.log(updateProfileResponse);
 
         // Affichage du message pour confirmer que c'est réussi ou non
         if (updateProfileResponse.status === 201) {
@@ -88,6 +91,20 @@ function AdminProfilesUpdatePage() {
                             <label>
                                 Bio
                                 <input type="text" name="profileBio" defaultValue={profile.profilBio} />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Rang
+                                {/* Ternaire pour éviter de retourner une erreur REACT comme quoi la valeur est null */}
+                                <input type="text" name="ranksLabel" defaultValue={profile.GameRank?.ranksLabel || "N/A"} />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Rôle
+                                {/* Ternaire pour éviter de retourner une erreur REACT comme quoi la valeur est null */}
+                                <input type="text" name="gameRoleLabel" defaultValue={profile.GameRole?.gameRoleLabel || "N/A"} />
                             </label>
                         </div>
                         <input type="submit" />

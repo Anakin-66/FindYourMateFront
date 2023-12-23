@@ -19,10 +19,10 @@ function ProfilePage() {
   return (
     <>
       <main>
-        {/* Est-ce que cocktail contient quelque chose ? */}
+        {/* Est-ce que profile contient quelque chose ? */}
         {profiles ? (
           <>
-            {/* Je fais un array map pour récupérer les cocktails grâce à la variable cocktails de useState */}
+            {/* Je fais un array map pour récupérer les profils grâce à la variable profiles de useState */}
             {profiles.map((profile) => {
               return (
                 <article>
