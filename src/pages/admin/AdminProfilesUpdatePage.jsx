@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 
 function AdminProfilesUpdatePage() {
 
-    // Hook useParams pour faire le lien avec un coworking id
+    // Hook useParams pour faire le lien avec un profil id
     const { id } = useParams();
-    // Hook useState pour récupérer les coworkings
+    // Hook useState pour récupérer les profils
     const [profile, setProfile] = useState(null)
+    // Hook useState pour récupérer les rangs
+    const [ranks, setRanks] = useState(null)
     // Hook useState pour display le message
     const [message, setMessage] = useState(null);
 
@@ -21,6 +23,17 @@ function AdminProfilesUpdatePage() {
         })();
     }, []);
 
+    useEffect(() => {
+        // Fetch de mes ranks
+        (async () => {
+            const reponse = await fetch(`http://localhost:3001/api/ingameranks/`)
+            const data = await reponse.json();
+            setRanks(data)
+            console.log(data);
+        })()
+
+    }, [])
+
 
     // bouton du update coworking
     const handleUpdateProfile = async (event) => {
@@ -31,7 +44,7 @@ function AdminProfilesUpdatePage() {
         const inGameName = event.target.inGameName.value;
         const profileBio = event.target.profileBio.value;
         const ranksLabel = event.target.ranksLabel.value;
-        const gameRoleLabel = event.target.gameRoleLabel.value;
+        // const gameRoleLabel = event.target.gameRoleLabel.value;
 
 
 
@@ -42,9 +55,9 @@ function AdminProfilesUpdatePage() {
             GameRank: {
                 ranksLabel: ranksLabel
             },
-            GameRole: {
-                gameRoleLabel: gameRoleLabel
-            },
+            // GameRole: {
+            //     gameRoleLabel: gameRoleLabel
+            // },
         };
 
         // Conversion en json
@@ -74,12 +87,14 @@ function AdminProfilesUpdatePage() {
     }
 
 
+
+
     return (
         <>
             <HeaderAdmin />
             <div>
                 {message && <p>{message}</p>}
-                {profile && (
+                {profile && ranks && (
                     <form onSubmit={handleUpdateProfile}>
                         <div>
                             <label>
@@ -96,15 +111,13 @@ function AdminProfilesUpdatePage() {
                         <div>
                             <label>
                                 Rang
-                                {/* Ternaire pour éviter de retourner une erreur REACT comme quoi la valeur est null */}
-                                <input type="text" name="ranksLabel" defaultValue={profile.GameRank?.ranksLabel || "N/A"} />
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                Rôle
-                                {/* Ternaire pour éviter de retourner une erreur REACT comme quoi la valeur est null */}
-                                <input type="text" name="gameRoleLabel" defaultValue={profile.GameRole?.gameRoleLabel || "N/A"} />
+                                <select name="ranksLabel" defaultValue={profile.GameRank.ranksLabel}>
+                                    {ranks.map((rank) => (
+                                        <option key={rank.id} value={rank.ranksLabel}>
+                                            {rank.ranksLabel}
+                                        </option>
+                                    ))}
+                                </select>
                             </label>
                         </div>
                         <input type="submit" />
