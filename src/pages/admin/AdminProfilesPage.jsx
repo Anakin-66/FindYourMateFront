@@ -67,7 +67,7 @@ function AdminProfilesPage() {
   //   });
   // };
 
-
+console.log(profiles);
 
   return (
     <>

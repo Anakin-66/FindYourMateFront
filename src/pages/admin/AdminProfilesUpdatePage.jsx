@@ -8,8 +8,6 @@ function AdminProfilesUpdatePage() {
     const { id } = useParams();
     // Hook useState pour récupérer les profils
     const [profile, setProfile] = useState(null)
-    // Hook useState pour récupérer les rangs
-    const [ranks, setRanks] = useState(null)
     // Hook useState pour display le message
     const [message, setMessage] = useState(null);
 
@@ -23,19 +21,8 @@ function AdminProfilesUpdatePage() {
         })();
     }, []);
 
-    useEffect(() => {
-        // Fetch de mes ranks
-        (async () => {
-            const reponse = await fetch(`http://localhost:3001/api/ingameranks/`)
-            const data = await reponse.json();
-            setRanks(data)
-            console.log(data);
-        })()
 
-    }, [])
-
-
-    // bouton du update coworking
+    // bouton du update profil
     const handleUpdateProfile = async (event) => {
         // Pour éviter le rafraichissement de base des formulaires
         event.preventDefault();
@@ -43,8 +30,6 @@ function AdminProfilesUpdatePage() {
         // On récupère les champs du formulaire
         const inGameName = event.target.inGameName.value;
         const profileBio = event.target.profileBio.value;
-        const ranksLabel = event.target.ranksLabel.value;
-        // const gameRoleLabel = event.target.gameRoleLabel.value;
 
 
 
@@ -52,12 +37,6 @@ function AdminProfilesUpdatePage() {
         const profileUpdateData = {
             inGameName: inGameName,
             profilBio: profileBio,
-            GameRank: {
-                ranksLabel: ranksLabel
-            },
-            // GameRole: {
-            //     gameRoleLabel: gameRoleLabel
-            // },
         };
 
         // Conversion en json
@@ -94,7 +73,7 @@ function AdminProfilesUpdatePage() {
             <HeaderAdmin />
             <div>
                 {message && <p>{message}</p>}
-                {profile && ranks && (
+                {profile &&  (
                     <form onSubmit={handleUpdateProfile}>
                         <div>
                             <label>
@@ -106,18 +85,6 @@ function AdminProfilesUpdatePage() {
                             <label>
                                 Bio
                                 <input type="text" name="profileBio" defaultValue={profile.profilBio} />
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                Rang
-                                <select name="ranksLabel" defaultValue={profile.GameRank.ranksLabel}>
-                                    {ranks.map((rank) => (
-                                        <option key={rank.id} value={rank.ranksLabel}>
-                                            {rank.ranksLabel}
-                                        </option>
-                                    ))}
-                                </select>
                             </label>
                         </div>
                         <input type="submit" />
