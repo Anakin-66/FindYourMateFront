@@ -39,7 +39,7 @@ function AdminUsersPage() {
     return (
         <>
             <HeaderAdmin />
-            <h1>Liste des profils : </h1>
+            <h1>Liste des utilisateurs : </h1>
             {users ? (
                 <>
                     {users.map((user) => {
@@ -47,10 +47,10 @@ function AdminUsersPage() {
                             <article>
                                 <h2>{user.username}</h2>
                                 {decodedToken.data.role !== 3 && (
-                                    <button onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer le profil</button>
+                                    <button onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer l'utilisateur</button>
                                 )}
                                 <Link to={`/admin/users/update/${user.id}`}>
-                                    <button>Mettre à jour le profil</button>
+                                    <button>Mettre à jour l'utilisateur</button>
                                 </Link>
                             </article>
                         );

@@ -30,6 +30,11 @@ function HeaderAdmin() {
             <Link to="/admin/users">Gérer les utilisateurs</Link>
           </li>
         </ul>
+        <ul>
+          <li>
+            <Link to="/admin/reviews">Gérer les commentaires</Link>
+          </li>
+        </ul>
         <button onClick={handleLogout}>Se déconnecter</button>
       </nav>
     </header>

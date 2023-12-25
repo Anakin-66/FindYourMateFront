@@ -76,7 +76,7 @@ function AdminUsersUpdatePage() {
                         <div>
                             <label>
                                 Nom d'utilisateur :
-                                <input type="text" name="username" defaultValue={user.username} />
+                                <input type="text" name="username" defaultValue={user.username} readOnly />
                             </label>
                         </div>
                         <div>

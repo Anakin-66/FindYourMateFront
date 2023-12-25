@@ -14,6 +14,7 @@ import AdminProfilesPage from "./pages/admin/AdminProfilesPage";
 import AdminProfilesUpdatePage from "./pages/admin/AdminProfilesUpdatePage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
 import AdminUsersUpdatePage from "./pages/admin/AdminUsersUpdatePage";
+import AdminReviewsPage from "./pages/admin/AdminReviewsPage";
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/admin/profils/update/:id" element={<AdminProfilesUpdatePage />} />
         <Route path="/admin/users" element={<AdminUsersPage />} />
         <Route path="/admin/users/update/:id" element={<AdminUsersUpdatePage />} />
+        <Route path="/admin/reviews/" element={<AdminReviewsPage />} />
 
 
 
