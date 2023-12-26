@@ -1,5 +1,6 @@
 import { ReactComponent as Logo } from "../../assets/images/FYM_Logo.svg"
-import { ReactComponent as MagnifyingGlass } from "../../assets/images/magnifying-glass-solid.svg"
+import profilLogo from "../../assets/images/user-solid.svg"
+import '../../assets/scss/partials/_header.scss'
 
 function Header() {
   return (
@@ -19,6 +20,11 @@ function Header() {
               <div class="search-icon"></div>
             </form>
           </li>
+        </ul>
+        <ul>
+          <button>S'inscrire</button>
+          <button>Se connecter</button>
+          <img src={profilLogo} alt="profilLogo" />
         </ul>
       </nav>
     </header>

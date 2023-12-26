@@ -16,7 +16,7 @@ import AdminUsersPage from "./pages/admin/AdminUsersPage";
 import AdminUsersUpdatePage from "./pages/admin/AdminUsersUpdatePage";
 import AdminReviewsPage from "./pages/admin/AdminReviewsPage";
 // Import CSS
-import "./partials/Header.scss"
+import "./assets/scss/style.scss"
 
 
 
