@@ -1,0 +1,47 @@
+header {
+    display: flex;
+}
+nav {
+    display: flex;
+}
+ul {
+    display: flex;
+}
+li {
+    list-style: none;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.search-container {
+    margin: 5px;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+.logo {
+    width: 15%;
+    height: auto;
+}
+
+.search-form {
+    position: relative;
+    .search-input {
+        background-image: url('/assets/images/magnifying-glass-solid.svg');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 20px; /* Ajustez la taille de votre icône */
+        border: 1px solid #707070; /* Ajoutez une bordure pour un meilleur aspect */
+        border-radius: 15px;
+      }
+  }
+  
+  
+  

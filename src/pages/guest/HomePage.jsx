@@ -1,7 +1,10 @@
+import Header from "../../components/guest/Header";
+
 function HomePage() {
   return (
    <>
-   <p>Home Page lol</p>
+   <Header />
+   <p>Home Page</p>
    </>
   );
 }
