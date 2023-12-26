@@ -1,6 +1,9 @@
+import Header from "../../components/guest/Header";
+
 function RegisterPage() {
     return (
       <>
+      <Header />
       </>
     );
   }

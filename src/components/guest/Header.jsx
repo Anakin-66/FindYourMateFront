@@ -1,37 +1,48 @@
-import { ReactComponent as Logo } from "../../assets/images/FYM_Logo.svg"
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/FYM_Logo.svg"
 import profilLogo from "../../assets/images/user-solid.svg"
 import '../../assets/scss/partials/_header.scss'
 
 function Header() {
   return (
-
     <nav>
-      <Logo class="logo" />
       <ul>
+        <img className="fym-logo" src={logo} alt="logo" />
         <li>
-          Profil
+          <Link to="/">
+            Home
+          </Link>
         </li>
         <li>
-          Contactez-nous
+          <Link to="/profils">
+            Profils
+          </Link>
         </li>
         <li>
-          <form action="/search" method="get" class="search-form">
-            <input type="text" id="search" name="q" placeholder="Search..." class="search-input" />
-            <div class="search-icon"></div>
+          <Link to="/contact">
+            Contactez-nous
+          </Link>
+        </li>
+        <li>
+          <form action="/search" method="get" className="search-form">
+            <input type="text" id="search" name="q" placeholder="Search..." className="search-input" />
+            <div className="search-icon"></div>
           </form>
         </li>
       </ul>
       <ul>
         <li>
-          <button>S'inscrire</button>
+          <Link to="/register">
+            <button>S'inscrire</button>
+          </Link>
         </li>
         <li>
-          <button>Se connecter</button>
-        </li>
-        <li>
-          <img src={profilLogo} alt="profilLogo" />
+          <Link to="/login">
+            <button>Se connecter</button>
+          </Link>
         </li>
       </ul>
+      <img className="profil-logo" src={profilLogo} alt="profilLogo" />
     </nav>
 
   );

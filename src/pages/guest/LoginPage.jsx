@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/guest/Header";
 
 function LoginPage() {
 
@@ -53,6 +54,7 @@ function LoginPage() {
 
   return (
     <>
+    <Header />
       <p>Login page</p>
       <div>
         {message && <p>{message}</p>}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../../components/guest/Header";
 
 function ProfilePage() {
 
@@ -18,6 +19,7 @@ function ProfilePage() {
  
   return (
     <>
+    <Header />
       <main>
         {/* Est-ce que profile contient quelque chose ? */}
         {profiles ? (
