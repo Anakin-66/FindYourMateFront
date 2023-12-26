@@ -4,30 +4,36 @@ import '../../assets/scss/partials/_header.scss'
 
 function Header() {
   return (
-    <header>
+
+    <nav>
       <Logo class="logo" />
-      <nav>
-        <ul>
-          <li>
-            Profil
-          </li>
-          <li>
-            Contactez-nous
-          </li>
-          <li>
-            <form action="/search" method="get" class="search-form">
-              <input type="text" id="search" name="q" placeholder="Search..." class="search-input" />
-              <div class="search-icon"></div>
-            </form>
-          </li>
-        </ul>
-        <ul>
+      <ul>
+        <li>
+          Profil
+        </li>
+        <li>
+          Contactez-nous
+        </li>
+        <li>
+          <form action="/search" method="get" class="search-form">
+            <input type="text" id="search" name="q" placeholder="Search..." class="search-input" />
+            <div class="search-icon"></div>
+          </form>
+        </li>
+      </ul>
+      <ul>
+        <li>
           <button>S'inscrire</button>
+        </li>
+        <li>
           <button>Se connecter</button>
+        </li>
+        <li>
           <img src={profilLogo} alt="profilLogo" />
-        </ul>
-      </nav>
-    </header>
+        </li>
+      </ul>
+    </nav>
+
   );
 }
 

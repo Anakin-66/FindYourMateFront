@@ -1,9 +1,11 @@
+* {
+    color: #BAC1B8;
+}
 
-// Variables
-$fym-color1: #D3D0CB;
-$fym-color2: #BAC1B8;
-$fym-color3: #2D2E2E;
-$fym-color4: #0F0F0F;
+body {
+    margin: 0;
+    padding: 0;
+}
 
 // Partials et import
 @import './partials/Header.scss'
