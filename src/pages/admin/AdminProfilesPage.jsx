@@ -22,52 +22,18 @@ function AdminProfilesPage() {
 
   // Fetch pour supprimer un profil
   const handleDeleteProfiles = async (event, profilesId) => {
-    // Déclaration d'une variable avec un fetch de l'api pour récupérer le delete + l'id du coworking
+    // Déclaration d'une variable avec un fetch de l'api pour récupérer le delete + l'id du profil
     await fetch("http://localhost:3001/api/profils/" + profilesId, {
       // La méthode "DELETE" est un delete
       method: "DELETE",
-      // Seulement quelqu'un qui a un token peut supprimer les coworkings (On l'a pas encore restreint au superadmin si je dis pas de bêtise)
+      // Seulement quelqu'un qui a un token peut supprimer les profils 
       headers: { Authorization: "Bearer " + token }
     });
-    // Second fetch d'api pour mettre a jour suite à une supression d'un coworking
+    // Second fetch d'api pour mettre a jour suite à une supression d'un profil
     const profilesResponse = await fetch('http://localhost:3001/api/profils');
     const profilesResponseData = await profilesResponse.json();
     setProfiles(profilesResponseData);
   }
-
-  // // Fetch pour créer un feedback
-  // const handleCreateReview = async (event, profileId) => {
-  //   event.preventDefault();
-
-  //   // je récupère les valeurs du formulaire
-  //   const content = event.target.content.value;
-  //   const rating = event.target.rating.value;
-
-  //   // je créé un objet avec les valeurs du formulaire
-  //   // + l'id du coworking passé en parametre
-  //   const reviewToCreate = {
-  //     content: content,
-  //     rating: rating,
-  //     ProfilId: profileId,
-  //   };
-
-  //   // je transforme en JSON mon objet
-  //   const reviewToCreateJson = JSON.stringify(reviewToCreate);
-
-  //   // je fais mon appel fetch sur la création d'une review
-  //   // en passant le token en authorization
-  //   // et le le json avec les données du form (et l'id du coworking)
-  //   await fetch("http://localhost:3001/api/reviews", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "Bearer " + token,
-  //     },
-  //     body: reviewToCreateJson,
-  //   });
-  // };
-
-console.log(profiles);
 
   return (
     <>
@@ -79,6 +45,7 @@ console.log(profiles);
             return (
               <article>
                 <h2>{profile.inGameName}</h2>
+                {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un profil */}
                 {decodedToken.data.role !== 3 && (
                   <button onClick={(event) => handleDeleteProfiles(event, profile.id)}>Supprimer le profil</button>
                 )}

@@ -32,7 +32,7 @@ function AdminUsersUpdatePage() {
         const password = event.target.password.value;
 
 
-        // Déclaration d'une variable d'objet coworkingToCreate qui correspond au model de l'api
+        // Déclaration d'une variable d'objet userUpdateData qui correspond au model de l'api
         const userUpdateData = {
             username: username,
             password: password
@@ -44,7 +44,7 @@ function AdminUsersUpdatePage() {
         // récupération du token
         const token = localStorage.getItem("jwt");
         console.log(userUpdateData);
-        // fetching des coworkings + leur id respectif
+        // fetching des utilisateurs + leur id respectif
         const updateUserResponse = await fetch("http://localhost:3001/api/users/" + id, {
             // La méthode est un "PUT"
             method: "PUT",

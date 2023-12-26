@@ -11,7 +11,7 @@ function AdminUsersPage() {
 
     const decodedToken = jwtDecode(token)
 
-    // Fetch pour get tout les profils
+    // Fetch pour get tout les utilisateurs
     useEffect(() => {
         (async () => {
             const usersResponse = await fetch("http://localhost:3001/api/users")
@@ -21,16 +21,16 @@ function AdminUsersPage() {
         })();
     }, [])
 
-    // Fetch pour supprimer un profil
+    // Fetch pour supprimer un utilisateur
     const handleDeleteUsers = async (event, usersId) => {
-        // Déclaration d'une variable avec un fetch de l'api pour récupérer le delete + l'id du coworking
+        // Déclaration d'une variable avec un fetch de l'api pour récupérer le delete + l'id de l'utilisateur
         await fetch("http://localhost:3001/api/users/" + usersId, {
             // La méthode "DELETE" est un delete
             method: "DELETE",
-            // Seulement quelqu'un qui a un token peut supprimer les coworkings (On l'a pas encore restreint au superadmin si je dis pas de bêtise)
+            // Seulement quelqu'un qui a un token peut supprimer les utilisateurs 
             headers: { Authorization: "Bearer " + token }
         });
-        // Second fetch d'api pour mettre a jour suite à une supression d'un coworking
+        // Second fetch d'api pour mettre a jour suite à une supression d'un utilisateur
         const usersResponse = await fetch('http://localhost:3001/api/users');
         const usersResponseData = await usersResponse.json();
         setUsers(usersResponseData);
@@ -46,6 +46,7 @@ function AdminUsersPage() {
                         return (
                             <article>
                                 <h2>{user.username}</h2>
+                                {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un utilisateur */}
                                 {decodedToken.data.role !== 3 && (
                                     <button onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer l'utilisateur</button>
                                 )}

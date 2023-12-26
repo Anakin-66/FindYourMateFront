@@ -11,7 +11,7 @@ function AdminProfilesUpdatePage() {
     // Hook useState pour display le message
     const [message, setMessage] = useState(null);
 
-    // Hook useEffect pour que le composant ne boucle pas à l'infini
+    // Hook useEffect pour que le composant ne boucle pas
     useEffect(() => {
         (async () => {
             const profileResponse = await fetch("http://localhost:3001/api/profils/" + id);
@@ -33,7 +33,7 @@ function AdminProfilesUpdatePage() {
 
 
 
-        // Déclaration d'une variable d'objet coworkingToCreate qui correspond au model de l'api
+        // Déclaration d'une variable d'objet profileUpdateData qui correspond au model de l'api
         const profileUpdateData = {
             inGameName: inGameName,
             profilBio: profileBio,
@@ -44,9 +44,9 @@ function AdminProfilesUpdatePage() {
         // récupération du token
         const token = localStorage.getItem("jwt");
         console.log(profileUpdateData);
-        // fetching des coworkings + leur id respectif
+        // fetching des profils + leur id respectif
         const updateProfileResponse = await fetch("http://localhost:3001/api/profils/" + id, {
-            // La méthode est un "PUT"
+            // La méthode est un "PUT" (un update)
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
