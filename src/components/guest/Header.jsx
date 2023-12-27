@@ -23,48 +23,48 @@ function Header() {
 
   return (
     <nav>
-      <ul>
+      <ul className="navUnorderedList">
         <img className="fym-logo" src={logo} alt="logo" />
-        <li>
+        <li className="navList">
           <Link to="/">
             Home
           </Link>
         </li>
-        <li>
+        <li className="navList">
           <Link to="/profils">
             Profils
           </Link>
         </li>
-        <li>
+        <li className="navList">
           <Link to="/contact">
             Contactez-nous
           </Link>
         </li>
-        <li>
+        <li className="navList">
           <form action="/search" method="get" className="search-form">
             <input type="text" id="search" name="q" placeholder="Search..." className="search-input" />
             <div className="search-icon"></div>
           </form>
         </li>
       </ul>
-      <ul>
-        <li>
+      <ul className="navUnorderedList">
+        <li className="navList">
           {/* Si l'utilisateur est connecté alors affiche le bouton se déconnecter, sinon affiche le bouton s'inscrire */}
           {isLoggedIn ? (
-            <button onClick={handleLogout}>Se déconnecter</button>
+            <button className="navButton" onClick={handleLogout}>Se déconnecter</button>
           ) : (
             <Link to="/register">
-              <button>S'inscrire</button>
+              <button className="navButton">S'inscrire</button>
             </Link>
           )}
         </li>
-        <li>
+        <li className="navList">
           {/* Bouton se connecter afficher si l'utilisateur est connecté ou non */}
           {isLoggedIn ? (
             null
           ) : (
             <Link to="/login">
-              <button>Se connecter</button>
+              <button className="navButton">Se connecter</button>
             </Link>
           )}
         </li>
