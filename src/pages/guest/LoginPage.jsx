@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/guest/Header";
+import '../../assets/scss/partials/_login.scss'
 
 function LoginPage() {
 
@@ -54,21 +55,25 @@ function LoginPage() {
 
   return (
     <>
-    <Header />
-      <p>Login page</p>
-      <div>
-        {message && <p>{message}</p>}
-        <form onSubmit={handleLogin}>
-          <label>
-            username
-            <input type="text" name="username" />
-          </label>
-          <label>
-            password
-            <input type="text" name="password" />
-          </label>
-          <input type="submit" />
-        </form>
+      <Header />
+      <div className="backgroundImg">
+        <h2>Connectez vous</h2>
+        <div className="outerLoginContainer">
+          <div className="innerLoginContainer">
+            {message && <p>{message}</p>}
+            <form className="formContainer" onSubmit={handleLogin}>
+              <label>
+                Nom d'utilisateur
+                <input type="text" name="username" />
+              </label>
+              <label>
+                Mot de passe
+                <input type="password" name="password" />
+              </label>
+              <button className="loginButton" type="submit">Se connecter</button> 
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );

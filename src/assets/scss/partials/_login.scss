@@ -1,0 +1,74 @@
+* {
+    color: #BAC1B8;
+}
+
+.backgroundImg {
+    background-image: url(../../images/cartographer-1920x1080.png); /* Remplacez par le chemin de votre image de fond */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Définir la direction en colonne pour empiler les éléments verticalement */
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    color: #BAC1B8;
+    margin-bottom: 20px;
+  }
+  
+  .outerLoginContainer {
+    background-color: rgba(211, 208, 203, 0.35); /* Utilisez rgba pour définir la transparence seulement sur la couleur de fond */
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+  }
+  
+  .innerLoginContainer {
+    background-color: #2D2E2E;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Ajoutez cette propriété pour centrer les éléments horizontalement */
+    color: black;
+
+  }
+  
+label {
+    margin: 10px 0;
+    display: block;
+    font-weight: bold;
+  }
+  
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    color: black; /* Ajoutez cette ligne pour spécifier la couleur pour les champs de formulaire */
+  }
+  
+.loginButton {
+    border-radius: 0px;
+    margin: 10px 0;
+    background-color: #BAC1B8;
+    color: #0F0F0F;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+.loginButton:hover {
+    background-color: #0F0F0F;
+    color: #BAC1B8;
+}

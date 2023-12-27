@@ -31,8 +31,6 @@ function ProfilePage() {
                   <h2> Pseudo : {profile.inGameName} </h2>
                   <p> Bio : {profile.profilBio} </p>
                   {/* Ternaire pour que REACT me retourne mon composant même si leur valeur sont null */}
-                  <p> Rang : {profile.GameRank?.ranksLabel || "N/A"} </p>
-                  <p> Rôle : {profile.GameRole?.gameRoleLabel || "N/A"} </p>
                 </article>
               )
 
