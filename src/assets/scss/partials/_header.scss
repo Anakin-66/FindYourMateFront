@@ -34,18 +34,16 @@ button {
     width: 2%;
 }
 
-.search-form {
-    position: relative;
-    .search-input {
-        background-image: url('/assets/images/magnifying-glass-solid.svg');
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: 20px; /* Ajustez la taille de votre icône */
-        border: 1px solid #707070; /* Ajoutez une bordure pour un meilleur aspect */
-        padding: 5px 10px;
-        border-radius: 15px;
-      }
-  }
+.search-form .search-input {
+    background-image: url('/assets/images/magnifying-glass-solid.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px;
+    border: 1px solid #707070;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
   
   
   
