@@ -32,12 +32,12 @@ function Header() {
         </li>
         <li className="navList">
           <Link to="/profils">
-          <span className="underline">Profils</span>
+            <span className="underline">Profils</span>
           </Link>
         </li>
         <li className="navList">
           <Link to="/contact">
-          <span className="underline">Contactez-nous</span>
+            <span className="underline">Contactez-nous</span>
           </Link>
         </li>
         <li className="navList">
