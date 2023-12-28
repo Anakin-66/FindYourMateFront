@@ -14,6 +14,18 @@ nav {
     list-style: none;
 }
 
+.underline {
+    width: calc(100%);
+    background-image: linear-gradient(transparent calc(100% - 3px), #BAC1B8 10px);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.5s;
+    padding-bottom: 3px;
+}
+.underline:hover {
+    background-size: 100% 100%;
+}
+
 a {
     text-decoration: none;
 }

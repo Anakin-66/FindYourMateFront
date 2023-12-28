@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/guest/Header";
 import '../../assets/scss/partials/_login.scss'
+import Footer from "../../components/guest/Footer";
 
 function LoginPage() {
 
@@ -75,6 +76,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

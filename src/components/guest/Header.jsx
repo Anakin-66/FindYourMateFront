@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/images/FYM_Logo.svg"
 import profilLogo from "../../assets/images/user-solid.svg"
 import '../../assets/scss/partials/_header.scss'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Header() {
 
@@ -27,17 +27,17 @@ function Header() {
         <img className="fym-logo" src={logo} alt="logo" />
         <li className="navList">
           <Link to="/">
-            Home
+            <span className="underline">Home</span>
           </Link>
         </li>
         <li className="navList">
           <Link to="/profils">
-            Profils
+          <span className="underline">Profils</span>
           </Link>
         </li>
         <li className="navList">
           <Link to="/contact">
-            Contactez-nous
+          <span className="underline">Contactez-nous</span>
           </Link>
         </li>
         <li className="navList">
