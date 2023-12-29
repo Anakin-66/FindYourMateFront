@@ -31,8 +31,8 @@ function ProfilePage() {
   return (
     <>
       <Header />
-      <div className="backgroundImg">
-        <h2>Profils de joueurs</h2>
+      <div className="backgroundImgNoFlex">
+        <h2 className="profileTitle">Profils de joueurs</h2>
         <main className="mainProfilePage">
           {/* Est-ce que profile contient quelque chose ? */}
           {profiles ? (
@@ -43,11 +43,9 @@ function ProfilePage() {
                   <article className="profileArticle">
                     <div className="outerContainer">
                       <div className="innerContainer">
-                        <div className="profileContainer">
-                          <div className="profileInfo">
-                            <img className="profileIcon" src={profileIcon} alt="profileIcon" />
-                            <h3> {profile.inGameName} </h3>
-                          </div>
+                        <div className="profileInfo">
+                          <img className="profileIcon" src={profileIcon} alt="profileIcon" />
+                          <h3> {profile.inGameName} </h3>
                         </div>
                         <p>Note moyenne : {" "} {profile.Reviews.length > 0 ? calculateAverageRating(profile.Reviews) : "Aucune note"}</p>
                         <Link to={`/profil/details/${profile.id}`}><button className="button1">Voir les détails du profil</button></Link>
