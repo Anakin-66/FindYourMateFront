@@ -1,4 +1,3 @@
-import '../../assets/scss/partials/_footer.scss'
 import twitterLogo from "../../assets/images/twitter.svg"
 import discordLogo from "../../assets/images/discord.svg"
 

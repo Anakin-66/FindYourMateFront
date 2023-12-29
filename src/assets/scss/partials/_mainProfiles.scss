@@ -1,0 +1,49 @@
+.mainProfilePage {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.outerContainer {
+    background-color: rgba(211, 208, 203, 0.35); 
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.innerContainer {
+    background-color: #2D2E2E;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.profilesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+.profileInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    gap: 10px;
+  }
+
+.profileArticle {
+    width: 30%; /* Adjust the width as needed */
+    margin-bottom: 20px; /* Adjust the margin as needed */
+    
+}
+
+// css pour l'îcone de profil 
+.profileIcon {
+    width: 15%;
+    border-radius: 8px;
+  }

@@ -6,7 +6,7 @@
     background-image: url(../../images/cartographer-1920x1080.png); 
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column; 
     justify-content: center;
@@ -98,4 +98,10 @@ option {
   margin-bottom: 15px;
   box-sizing: border-box;
   color: black;
+}
+
+// css pour l'îcone de profil 
+.profileIcon {
+  width: 15%;
+  border-radius: 8px;
 }

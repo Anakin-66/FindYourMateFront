@@ -17,7 +17,10 @@ import AdminUsersUpdatePage from "./pages/admin/AdminUsersUpdatePage";
 import AdminReviewsPage from "./pages/admin/AdminReviewsPage";
 // Import CSS
 import "./assets/scss/style.scss"
+import './assets/scss/partials/_header.scss'
 import './assets/scss/partials/_main.scss'
+import './assets/scss/partials/_mainProfiles.scss'
+import './assets/scss/partials/_footer.scss'
 
 
 

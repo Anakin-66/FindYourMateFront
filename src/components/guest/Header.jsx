@@ -1,7 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/images/FYM_Logo.svg"
 import profilLogo from "../../assets/images/user-solid.svg"
-import '../../assets/scss/partials/_header.scss'
 import { useState } from "react";
 
 function Header() {
