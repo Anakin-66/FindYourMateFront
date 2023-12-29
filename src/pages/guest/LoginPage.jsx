@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/guest/Header";
-import '../../assets/scss/partials/_login.scss'
 import Footer from "../../components/guest/Footer";
 
 function LoginPage() {
@@ -58,9 +57,9 @@ function LoginPage() {
     <>
       <Header />
       <div className="backgroundImg">
-        <h2>Connectez vous</h2>
-        <div className="outerLoginContainer">
-          <div className="innerLoginContainer">
+        <h2>Connectez-vous</h2>
+        <div className="outerContainer">
+          <div className="innerContainer">
             {message && <p>{message}</p>}
             <form className="formContainer" onSubmit={handleLogin}>
               <label>
@@ -71,7 +70,7 @@ function LoginPage() {
                 Mot de passe
                 <input type="password" name="password" />
               </label>
-              <button className="loginButton" type="submit">Se connecter</button> 
+              <button className="button1" type="submit">Se connecter</button> 
             </form>
           </div>
         </div>

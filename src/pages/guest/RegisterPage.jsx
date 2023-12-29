@@ -59,9 +59,9 @@ function RegisterPage() {
     <>
       <Header />
       <div className="backgroundImg">
-        <h2>Inscrivez vous</h2>
-        <div className="outerLoginContainer">
-          <div className="innerLoginContainer">
+        <h2>Inscrivez-vous</h2>
+        <div className="outerContainer">
+          <div className="innerContainer">
             {message && <p>{message}</p>}
             <form className="formContainer" onSubmit={handleCreateUser}>
               <label>
@@ -76,7 +76,7 @@ function RegisterPage() {
                 Confirmez votre mot de passe
                 <input type="password" name="confirmPassword" />
               </label>
-              <button className="loginButton" type="submit">S'inscrire</button>
+              <button className="button1" type="submit">S'inscrire</button>
             </form>
           </div>
         </div>
