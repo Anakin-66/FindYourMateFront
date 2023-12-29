@@ -1,3 +1,5 @@
+// CSS de la ContactPage, RegisterPage, LoginPage
+
 * {
     color: #BAC1B8;
 }
@@ -14,8 +16,9 @@
 }
 
 h2 {
-    color: #BAC1B8;
-    margin-bottom: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
 }
   
 .outerContainer {
@@ -24,8 +27,7 @@ h2 {
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 350px;
+    align-items: center; 
 }
   
 .innerContainer {
@@ -33,7 +35,7 @@ h2 {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 300px;
+    
 }
   
 .formContainer {
@@ -80,16 +82,8 @@ input {
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   }
 
-select {
-    padding: 8px;
-    color: black;
-}
 
-option {
-  color: black;
-}
-
-// css pour le textarea
+// css pour le textarea de la contact page
 .labelDescribe {
   width: 100%;
   height: 150px;
@@ -98,6 +92,15 @@ option {
   margin-bottom: 15px;
   box-sizing: border-box;
   color: black;
+}
+
+select {
+  padding: 8px;
+  color: black;
+}
+
+option {
+color: black;
 }
 
 // css pour l'îcone de profil 

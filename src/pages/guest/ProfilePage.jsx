@@ -41,8 +41,8 @@ function ProfilePage() {
               {profiles.map((profile) => {
                 return (
                   <article className="profileArticle">
-                    <div className="outerContainer">
-                      <div className="innerContainer">
+                    <div className="outerContainerProfiles">
+                      <div className="innerContainerProfiles">
                         <div className="profileInfo">
                           <img className="profileIcon" src={profileIcon} alt="profileIcon" />
                           <h3> {profile.inGameName} </h3>

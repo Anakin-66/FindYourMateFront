@@ -1,3 +1,5 @@
+// CSS de la ProfilesPage
+
 .backgroundImgNoFlex {
     background-image: url(../../images/cartographer-1920x1080.png); 
     background-size: cover;
@@ -5,32 +7,30 @@
     width: 100%;
     min-height: 100vh;
     
-}
-
-.profileTitle {
-    text-align: center;
-    margin: 0;
+    
 }
 
 .mainProfilePage {
-    margin-top: 20px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    padding-bottom: 60px;
 }
 
-.outerContainer {
+.outerContainerProfiles {
     background-color: rgba(211, 208, 203, 0.35); 
     padding: 30px;
     border-radius: 8px;
     
 }
 
-.innerContainer {
+.innerContainerProfiles {
     background-color: #2D2E2E;
     padding: 20px;
     border-radius: 8px;
+    text-align: center;
 }
 
 .profileInfo {
