@@ -1,0 +1,29 @@
+.supportedGames {
+    display: flex;
+    justify-content: center;
+}
+
+.outerContainerImg {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(211, 208, 203, 0.35);
+    width: 30%;
+    
+}
+
+.homeImg {
+    max-width:100%;
+    max-height:100%;
+    border-radius: 8px;
+    
+}
+
+.notSupportedGames {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+
+
