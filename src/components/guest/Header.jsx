@@ -1,6 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/images/FYM_Logo.svg"
-import profilLogo from "../../assets/images/user-solid.svg"
 import { useState } from "react";
 
 function Header() {
@@ -22,7 +21,7 @@ function Header() {
 
   return (
     <nav>
-      <ul className="navUnorderedList">
+      <ul className="navUnorderedListLeft">
         <img className="fym-logo" src={logo} alt="logo" />
         <li className="navList">
           <Link to="/">
@@ -46,11 +45,16 @@ function Header() {
           </form>
         </li>
       </ul>
-      <ul className="navUnorderedList">
+      <ul className="navUnorderedListRight">
         <li className="navList">
           {/* Si l'utilisateur est connecté alors affiche le bouton se déconnecter, sinon affiche le bouton s'inscrire */}
           {isLoggedIn ? (
-            <button className="navButton" onClick={handleLogout}>Se déconnecter</button>
+            <>
+              <button  className="navButton" onClick={handleLogout}>Se déconnecter</button>
+              <Link to="/profil/edit">
+                <button className="navButton">Modifier mon profil</button>
+              </Link>
+            </>
           ) : (
             <Link to="/register">
               <button className="navButton">S'inscrire</button>
@@ -68,7 +72,6 @@ function Header() {
           )}
         </li>
       </ul>
-      <img className="profil-logo" src={profilLogo} alt="profilLogo" />
     </nav>
   );
 }

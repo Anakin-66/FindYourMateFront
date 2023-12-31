@@ -2,13 +2,18 @@ nav {
     background-color: #2D2E2E;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0.6250em;
 }
-.navUnorderedList {
+.navUnorderedListRight {
     display: flex;
     align-items: center;
-    gap: 50px;
     padding: 0;
+}
+.navUnorderedListLeft {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 50px;
 }
 .navList {
     list-style: none;
@@ -20,7 +25,7 @@ nav {
     background-repeat: no-repeat;
     background-size: 0% 100%;
     transition: background-size 0.5s;
-    padding-bottom: 3px;
+    padding-bottom: 0.1875em;
 }
 .underline:hover {
     background-size: 100% 100%;
@@ -31,12 +36,13 @@ a {
 }
   
 .navButton {
-  padding: 5px 10px;
-  border-radius: 15px;
-  border:1px solid #707070;
-  background-color: #2D2E2E;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Animation de transition sur la couleur de fond */
+    margin-right: 3em;
+    padding: 0.5em 1em;
+    border-radius: 15px;
+    border:1px solid #707070;
+    background-color: #2D2E2E;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animation de transition sur la couleur de fond */
 }
 
 .navButton:hover {
@@ -57,9 +63,9 @@ a {
     background-position: right center;
     background-size: 20px;
     border: 1px solid #707070;
-    padding: 5px 10px;
+    padding: 0.3125em 0.625em;
     border-radius: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125em;
 }
   
   

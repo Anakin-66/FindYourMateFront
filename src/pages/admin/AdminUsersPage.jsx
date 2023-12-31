@@ -10,6 +10,7 @@ function AdminUsersPage() {
     const token = localStorage.getItem("jwt");
 
     const decodedToken = jwtDecode(token)
+    console.log(token);
 
     // Fetch pour get tout les utilisateurs
     useEffect(() => {
