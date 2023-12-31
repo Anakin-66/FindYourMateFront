@@ -39,8 +39,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profils" element={<ProfilePage />} />
         <Route path="/account/edit" element={<OwnProfilePage />} />
-        <Route path="/account/edit/profile" element={<EditProfilePage />} />
-        <Route path="/account/edit/user" element={<EditUserPage />} />
+        <Route path="/account/edit/profile/" element={<EditProfilePage />} />
+        <Route path="/account/edit/user/" element={<EditUserPage />} />
         <Route path="/profil/details/:id" element={<ProfileDetailsPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
