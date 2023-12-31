@@ -23,6 +23,7 @@ import './assets/scss/partials/_header.scss'
 import './assets/scss/partials/_main.scss'
 import './assets/scss/partials/_mainProfiles.scss'
 import './assets/scss/partials/_homeImages.scss'
+import './assets/scss/partials/_reviewSection.scss'
 import './assets/scss/partials/_footer.scss'
 
 
