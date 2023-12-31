@@ -6,6 +6,8 @@ import ProfilePage from "./pages/guest/ProfilePage";
 import ProfileDetailsPage from "./pages/guest/ProfileDetailsPage";
 import LoginPage from "./pages/guest/LoginPage";
 import OwnProfilePage from "./pages/guest/OwnProfilePage";
+import EditProfilePage from "./pages/guest/EditProfilePage";
+import EditUserPage from "./pages/guest/EditUserPage";
 import RegisterPage from "./pages/guest/RegisterPage";
 import CreateProfilePage from "./pages/guest/CreateProfilePage";
 // Import côté admin
@@ -25,6 +27,7 @@ import './assets/scss/partials/_footer.scss'
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -35,7 +38,9 @@ function App() {
         <Route path="/createprofil" element={<CreateProfilePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profils" element={<ProfilePage />} />
-        <Route path="/profil/edit" element={<OwnProfilePage />} />
+        <Route path="/account/edit" element={<OwnProfilePage />} />
+        <Route path="/account/edit/profile" element={<EditProfilePage />} />
+        <Route path="/account/edit/user" element={<EditUserPage />} />
         <Route path="/profil/details/:id" element={<ProfileDetailsPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
@@ -46,9 +51,6 @@ function App() {
         <Route path="/admin/users" element={<AdminUsersPage />} />
         <Route path="/admin/users/update/:id" element={<AdminUsersUpdatePage />} />
         <Route path="/admin/reviews/" element={<AdminReviewsPage />} />
-
-
-
       </Routes>
     </BrowserRouter >
   );

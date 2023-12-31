@@ -51,8 +51,8 @@ function Header() {
           {isLoggedIn ? (
             <>
               <button  className="navButton" onClick={handleLogout}>Se déconnecter</button>
-              <Link to="/profil/edit">
-                <button className="navButton">Modifier mon profil</button>
+              <Link to="/account/edit">
+                <button className="navButton">Modifier mon compte</button>
               </Link>
             </>
           ) : (
