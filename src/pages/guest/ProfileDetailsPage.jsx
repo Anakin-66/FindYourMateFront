@@ -53,11 +53,11 @@ function ProfileDetailsPage() {
     const rating = event.target.rating.value;
 
     // je créé un objet avec les valeurs du formulaire
-    // + l'id du coworking passé en parametre
+    // + l'id du profil passé en parametre
     const reviewToCreate = {
       content: content,
       rating: rating,
-      CoworkingId: profileId,
+      ProfilId: profileId,
     };
 
     // je transforme en JSON mon objet
@@ -65,15 +65,34 @@ function ProfileDetailsPage() {
 
     // je fais mon appel fetch sur la création d'une review
     // en passant le token en authorization
-    // et le le json avec les données du form (et l'id du coworking)
-    await fetch("http://localhost:3001/api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-      body: reviewToCreateJson,
-    });
+    // et le le json avec les données du form (et l'id du profil)
+    try {
+      const response = await fetch("http://localhost:3001/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: reviewToCreateJson,
+      });
+
+      if (response.ok) {
+        // Si le status de réponse est positif, informe l'utilisateur de son succès
+        alert("Commentaire crée avec succès !");
+        // Recharge la page en cas de succès
+        window.location.reload();
+      } else {
+        // Si la réponse du statut n'est pas bonne alors il gère l'erreur
+        console.error("Echec de la création du commentaire :", response.statusText);
+        // Alerte l'utilisateur de l'échec de la création du commentaire
+        alert("La création d'un commentaire à échoué. Veuillez réessayer.");
+      }
+    } catch (error) {
+      // Pour gérer les erreurs côté réseau
+      console.error("Une erreur est survenue:", error);
+      // Informe l'utilisateur de l'erreur
+      alert("Une erreur est survenue. Veuillez réessayer.");
+    }
   };
 
   return (
@@ -106,6 +125,7 @@ function ProfileDetailsPage() {
                     .filter((review) => review.ProfilId === profile.id)
                     .map((review) => (
                       <article className="reviewArticle" key={review.id}>
+                        {/* <img className="profileIcon" src={profileIcon} alt="profileIcon" /> */}
                         <p>Utilisateur : {review.User.username}</p>
                         <p>Commentaire : {review.content}</p>
                         <p>Note : {review.rating}</p>
@@ -128,7 +148,6 @@ function ProfileDetailsPage() {
                       Note
                       <input type="number" name="rating" />
                     </label>
-
                     <input className="button1" type="submit" />
                   </form>
                 </div>

@@ -18,7 +18,6 @@ function Header() {
     navigate("/login");
   };
 
-
   return (
     <nav>
       <ul className="navUnorderedListLeft">
@@ -52,7 +51,7 @@ function Header() {
             <>
               <button  className="navButton" onClick={handleLogout}>Se déconnecter</button>
               <Link to="/account/edit">
-                <button className="navButton">Modifier mon compte</button>
+                <button className="navButton">Gérer mon compte</button>
               </Link>
             </>
           ) : (
