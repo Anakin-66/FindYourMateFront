@@ -3,7 +3,7 @@ import Footer from "../../components/guest/Footer";
 import Header from "../../components/guest/Header";
 
 
-function OwnProfilePage() {
+function EditAccountPage() {
 
   return (
     <>
@@ -28,4 +28,4 @@ function OwnProfilePage() {
   );
 }
 
-export default OwnProfilePage;
+export default EditAccountPage;

@@ -5,7 +5,7 @@ import ContactPage from "./pages/guest/ContactPage";
 import ProfilePage from "./pages/guest/ProfilePage";
 import ProfileDetailsPage from "./pages/guest/ProfileDetailsPage";
 import LoginPage from "./pages/guest/LoginPage";
-import OwnProfilePage from "./pages/guest/OwnProfilePage";
+import EditAccountPage from "./pages/guest/EditAccountPage";
 import EditProfilePage from "./pages/guest/EditProfilePage";
 import EditUserPage from "./pages/guest/EditUserPage";
 import RegisterPage from "./pages/guest/RegisterPage";
@@ -28,6 +28,7 @@ import './assets/scss/partials/_footer.scss'
 
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -38,7 +39,7 @@ function App() {
         <Route path="/createprofil" element={<CreateProfilePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profils" element={<ProfilePage />} />
-        <Route path="/account/edit" element={<OwnProfilePage />} />
+        <Route path="/account/edit" element={<EditAccountPage />} />
         <Route path="/account/edit/profile/" element={<EditProfilePage />} />
         <Route path="/account/edit/user/" element={<EditUserPage />} />
         <Route path="/profil/details/:id" element={<ProfileDetailsPage />} />
