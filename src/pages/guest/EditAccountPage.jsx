@@ -13,9 +13,11 @@ function EditAccountPage() {
         <div className="outerContainer">
           <div className="innerContainer">
             <div className="formContainer">
-                <Link to={`/account/edit/user/`} >
-                  <button className="button1">Modifier le mot de passe</button>
-                </Link>
+              {/* Bouton qui redirige sur une page pour modifier le mot de passe */}
+              <Link to={`/account/edit/user/`} >
+                <button className="button1">Modifier le mot de passe</button>
+              </Link>
+              {/* Bouton qui redirige sur une page pour modifier le profil */}
               <Link to="/account/edit/profile" >
                 <button className="button1">Modifier le profil</button>
               </Link>
