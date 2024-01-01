@@ -54,7 +54,10 @@ function EditAccountPage() {
               <Link to={`/account/edit/profile/:id`}>
                 <button className="button1">Modifier le profil</button>
               </Link>
-
+              {/* Bouton pour supprimer le profil */}
+                <button className="button1">Supprimer mon profil</button>
+              {/* Bouton pour supprimer le compte */}
+                <button className="button1">Supprimer mon compte</button>
             </div>
           </div>
         </div>

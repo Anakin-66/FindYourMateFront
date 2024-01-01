@@ -3,8 +3,11 @@ import Footer from "../../components/guest/Footer";
 import Header from "../../components/guest/Header";
 import profileIcon from "../../assets/images/profileicon.jpg"
 import { useEffect, useState } from "react";
+import { useVerifyIfUserIsLogged } from "../../utils/security-utils";
 
-function ProfileDetailsPage() {
+const ProfileDetailsPage = () => {
+  // exécution du custom hook
+  useVerifyIfUserIsLogged();
 
   const { id } = useParams();
 
