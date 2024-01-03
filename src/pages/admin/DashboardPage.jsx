@@ -1,5 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../../components/admin/HeaderAdmin";
+import Footer from "../../components/guest/Footer";
 // import { jwtDecode } from "jwt-decode";
 
 function DashboardPage() {
@@ -18,7 +19,10 @@ function DashboardPage() {
   return (
     <>
       <HeaderAdmin />
-      <p>Dashboard page</p>
+      <div className="backgroundImg">
+        <h2>Bienvenu dans le dashboard admin</h2>
+      </div>
+      <Footer />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import HeaderAdmin from "../../components/admin/HeaderAdmin";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/guest/Footer";
 
 function AdminProfilesPage() {
   const [profiles, setProfiles] = useState(null);
@@ -38,28 +39,30 @@ function AdminProfilesPage() {
   return (
     <>
       <HeaderAdmin />
-      <h1>Liste des profils : </h1>
-      {profiles ? (
-        <>
-          {profiles.map((profile) => {
-            return (
-              <article>
-                <h2>{profile.inGameName}</h2>
-                {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un profil */}
-                {decodedToken.data.role !== 3 && (
-                  <button onClick={(event) => handleDeleteProfiles(event, profile.id)}>Supprimer le profil</button>
-                )}
-                <Link to={`/admin/profils/update/${profile.id}`}>
-                  <button>Mettre à jour le profil</button>
-                </Link>
-              </article>
-            );
-          })}
-        </>
-      ) : (
-        <p>En cours de chargement</p>
-      )}
-
+      <div className="backgroundImg">
+        <h1>Liste des profils : </h1>
+        {profiles ? (
+          <>
+            {profiles.map((profile) => {
+              return (
+                <article>
+                  <h2>{profile.inGameName}</h2>
+                  {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un profil */}
+                  {decodedToken.data.role !== 3 && (
+                    <button className="button1" onClick={(event) => handleDeleteProfiles(event, profile.id)}>Supprimer le profil</button>
+                  )}
+                  <Link to={`/admin/profils/update/${profile.id}`}>
+                    <button className="button1">Mettre à jour le profil</button>
+                  </Link>
+                </article>
+              );
+            })}
+          </>
+        ) : (
+          <p>En cours de chargement</p>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }

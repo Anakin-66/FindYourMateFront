@@ -66,9 +66,7 @@ const ProfileDetailsPage = () => {
     // je transforme en JSON mon objet
     const reviewToCreateJson = JSON.stringify(reviewToCreate);
 
-    // je fais mon appel fetch sur la création d'une review
-    // en passant le token en authorization
-    // et le le json avec les données du form (et l'id du profil)
+    // je fais mon appel fetch sur la création d'une review en passant le token en authorization et le le json avec les données du form (et l'id du profil)
     try {
       const response = await fetch("http://localhost:3001/api/reviews", {
         method: "POST",

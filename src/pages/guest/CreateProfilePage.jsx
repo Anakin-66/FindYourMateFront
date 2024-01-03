@@ -16,18 +16,18 @@ function CreateProfilePage() {
     const profileBio = event.target.profileBio.value;
 
 
-    // Déclaration d'une variable d'objet coworkingToCreate qui correspond au model de l'api
+    // Déclaration d'une variable d'objet profileToCreate qui correspond au model de l'api
     const profileToCreate = {
       inGameName: inGameName,
       profilBio: profileBio
 
     }
     console.log(profileToCreate);
-    // On récupère le coworkingToCreate qui sera traduit en JSON
+    // On récupère le profileToCreate qui sera traduit en JSON
     const profileToCreateJson = JSON.stringify(profileToCreate)
     // On récupère le token
     const token = localStorage.getItem("jwt")
-    // Déclaration d'une variable avec un fetch de l'api pour récupérer les coworkings
+    // Déclaration d'une variable avec un fetch de l'api pour récupérer les profils
     const createProfileReponse = await fetch("http://localhost:3001/api/profils", {
       // La méthode du create est un POST
       method: "POST",
@@ -56,7 +56,7 @@ function CreateProfilePage() {
       <Header />
       <div className="backgroundImg">
         <div className="backgroundImg">
-          <h2>Crée votre profil</h2>
+          <h2>Créez votre profil</h2>
           {message && <p>{message}</p>}
             <div className="outerContainer">
               <div className="innerContainer">

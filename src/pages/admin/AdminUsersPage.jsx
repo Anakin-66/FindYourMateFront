@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import HeaderAdmin from "../../components/admin/HeaderAdmin";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/guest/Footer";
 
 function AdminUsersPage() {
 
@@ -40,27 +41,30 @@ function AdminUsersPage() {
     return (
         <>
             <HeaderAdmin />
-            <h1>Liste des utilisateurs : </h1>
-            {users ? (
-                <>
-                    {users.map((user) => {
-                        return (
-                            <article>
-                                <h2>{user.username}</h2>
-                                {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un utilisateur */}
-                                {decodedToken.data.role !== 3 && (
-                                    <button onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer l'utilisateur</button>
-                                )}
-                                <Link to={`/admin/users/update/${user.id}`}>
-                                    <button>Mettre à jour l'utilisateur</button>
-                                </Link>
-                            </article>
-                        );
-                    })}
-                </>
-            ) : (
-                <p>En cours de chargement</p>
-            )}
+            <div className="backgroundImg">
+                <h1>Liste des utilisateurs : </h1>
+                {users ? (
+                    <>
+                        {users.map((user) => {
+                            return (
+                                <article>
+                                    <h2>{user.username}</h2>
+                                    {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un utilisateur */}
+                                    {decodedToken.data.role !== 3 && (
+                                        <button className="button1" onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer l'utilisateur</button>
+                                    )}
+                                    <Link to={`/admin/users/update/${user.id}`}>
+                                        <button className="button1">Mettre à jour l'utilisateur</button>
+                                    </Link>
+                                </article>
+                            );
+                        })}
+                    </>
+                ) : (
+                    <p>En cours de chargement</p>
+                )}
+            </div>
+            <Footer />
         </>
     );
 }

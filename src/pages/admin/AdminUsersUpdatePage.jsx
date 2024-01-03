@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import HeaderAdmin from "../../components/admin/HeaderAdmin";
 import { useEffect, useState } from "react";
+import Footer from "../../components/guest/Footer";
 
 function AdminUsersUpdatePage() {
 
@@ -69,7 +70,7 @@ function AdminUsersUpdatePage() {
     return (
         <>
             <HeaderAdmin />
-            <div>
+            <div className="backgroundImg">
                 {message && <p>{message}</p>}
                 {user && (
                     <form onSubmit={handleUpdateUser}>
@@ -85,10 +86,11 @@ function AdminUsersUpdatePage() {
                                 <input type="password" name="password" value={user.password} />
                             </label>
                         </div>
-                        <input type="submit" />
+                        <input className="button1" type="submit" />
                     </form>
                 )}
             </div>
+            <Footer />
         </>
     );
 }

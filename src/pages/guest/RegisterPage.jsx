@@ -24,7 +24,7 @@ function RegisterPage() {
       return;
     }
 
-    // Déclaration d'une variable d'objet coworkingToCreate qui correspond au model de l'api
+    // Déclaration d'une variable d'objet userToCreate qui correspond au model de l'api
     const userToCreate = {
       username: username,
       password: password,
@@ -32,9 +32,9 @@ function RegisterPage() {
 
     }
     console.log(userToCreate);
-    // On récupère le coworkingToCreate qui sera traduit en JSON
+    // On récupère le userToCreate qui sera traduit en JSON
     const userToCreateJson = JSON.stringify(userToCreate)
-    // Déclaration d'une variable avec un fetch de l'api pour récupérer les coworkings
+    // Déclaration d'une variable avec un fetch de l'api pour récupérer les utilisateurs
     const createUserReponse = await fetch("http://localhost:3001/api/users", {
       // La méthode du create est un POST
       method: "POST",
