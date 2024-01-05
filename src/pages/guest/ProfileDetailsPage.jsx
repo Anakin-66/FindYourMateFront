@@ -30,7 +30,7 @@ const ProfileDetailsPage = () => {
   // Je récupère toutes les reviews
   useEffect(() => {
     (async () => {
-      const reponse = await fetch(`http://localhost:3001/api/reviews/`)
+      const reponse = await fetch(`http://localhost:3001/api/reviews/profil/${id}`)
       const reviewsData = await reponse.json();
       setReviews(reviewsData)
       console.log(reviewsData);
@@ -122,8 +122,7 @@ const ProfileDetailsPage = () => {
               {reviews ? (
                 <>
                   {reviews
-                    // Je filtre mes reviews pour que l'id du profil qui a posté la review soit associé au bon profil
-                    .filter((review) => review.ProfilId === profile.id)
+                    // .filter((review) => review.ProfilId === profile.id)
                     .map((review) => (
                       <article className="reviewArticle" key={review.id}>
                         {/* <img className="profileIcon" src={profileIcon} alt="profileIcon" /> */}

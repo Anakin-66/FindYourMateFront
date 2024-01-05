@@ -1,20 +1,24 @@
+// import { jwtDecode } from "jwt-decode";
 // import { useNavigate } from "react-router-dom";
 import HeaderAdmin from "../../components/admin/HeaderAdmin";
 import Footer from "../../components/guest/Footer";
-// import { jwtDecode } from "jwt-decode";
+import { useVerifyIfUserIsLogged } from "../../utils/security-utils";
+
 
 function DashboardPage() {
-
   // const navigate = useNavigate();
 
   // const token = localStorage.getItem("jwt");
+  // console.log("Token:", token);
 
   // const decodedToken = jwtDecode(token)
+  // console.log("Decoded Token:", decodedToken);
 
   // if (decodedToken.data.role !== 3) {
-  //   console.log(decodedToken);
-  //   navigate('/homepage')
+  //   navigate("/");
   // }
+
+  useVerifyIfUserIsLogged();
 
   return (
     <>

@@ -41,7 +41,7 @@ function App() {
         <Route path="/profils" element={<ProfilePage />} />
         <Route path="/account/edit" element={<EditAccountPage />} />
         <Route path="/account/create/profile" element={<CreateProfilePage />} />
-        <Route path="/account/edit/profile/:id" element={<EditProfilePage />} />
+        <Route path="/account/edit/profile/" element={<EditProfilePage />} />
         <Route path="/account/edit/user/:id" element={<EditUserPage />} />
         <Route path="/profil/details/:id" element={<ProfileDetailsPage />} />
         <Route path="/contact" element={<ContactPage />} />
