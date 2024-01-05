@@ -7,7 +7,7 @@ function AdminReviewsPage() {
 
     const [profile, setProfile] = useState(null);
 
-    const [successMessage, setSuccessMessage] = useState(null); // Nouveau state pour le message de succès
+    const [errorMessages, setErrorMessages] = useState({});
 
     const [reviews, setReviews] = useState(null);
     // Seulement possible si un token a déjà été récupéré
@@ -27,18 +27,27 @@ function AdminReviewsPage() {
 
     const handleDeleteReviews = async (event, reviewsId) => {
         try {
-            await fetch("http://localhost:3001/api/reviews/" + reviewsId, {
+            const deleteReviewResponse = await fetch("http://localhost:3001/api/reviews/" + reviewsId, {
                 method: "DELETE",
                 headers: { Authorization: "Bearer " + token }
             });
 
-            // Mise à jour du state avec le message de succès
-            setSuccessMessage("Le commentaire a été supprimé avec succès.");
-
-            // Rechargement de la page après une pause de 1 seconde (pour laisser le temps au message d'être affiché)
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
+            // Boolean pour gérer les messages de status et le rafraichissement de la page
+            if (deleteReviewResponse.status === 403) {
+                setErrorMessages((prevErrors) => ({
+                    ...prevErrors,
+                    [reviewsId]: `Droits insuffisants`
+                }));
+            } else if (deleteReviewResponse.status === 200) {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
+            } else {
+                setErrorMessages((prevErrors) => ({
+                    ...prevErrors,
+                    [reviewsId]: `Erreur ! `
+                }));
+            }
 
         } catch (error) {
             console.error("Erreur lors de la suppression du commentaire :", error);
@@ -62,6 +71,7 @@ function AdminReviewsPage() {
                                     {/* Méthode map pour passer tout les commentaires du profil */}
                                     {profil.Reviews.map(review => (
                                         <li>
+                                            {errorMessages[review.id] && <p>{errorMessages[review.id]}</p>}
                                             <p>Commentaire : {review.content}</p>
                                             <p>Note reçu : {review.rating}</p>
                                             {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un commentaire */}
