@@ -1,37 +1,65 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../components/guest/Footer";
 import Header from "../../components/guest/Header";
 import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 
 function EditAccountPage() {
 
-  // const { id } = useParams();
+  const [user, setUser] = useState(null);
 
-  // const [profiles, setProfiles] = useState(null);
+  const token = localStorage.getItem("jwt");
 
-  // const [users, setUsers] = useState(null);
+  const decodedToken = jwtDecode(token)
+  console.log(decodedToken);
 
-  // // Fetch pour get tout les profils
-  // useEffect(() => {
-  //   (async () => {
-  //     const reponse = await fetch(`http://localhost:3001/api/profils/` + id)
-  //     const data = await reponse.json();
-  //     setProfiles(data.data)
-  //     console.log(data.data);
-  //   })()
+  const navigate = useNavigate();
 
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const UserResponse = await fetch("http://localhost:3001/api/users/" + decodedToken.dataId);
+      const userResponseData = await UserResponse.json();
+      setUser(userResponseData.data);
+      console.log(userResponseData.data);
+    })();
+  }, []);
 
-  // // Fetch pour get tout les utilisateurs
-  // useEffect(() => {
-  //   (async () => {
-  //     const usersResponse = await fetch("http://localhost:3001/api/users" + id)
-  //     const usersResponseData = await usersResponse.json();
-  //     setUsers(usersResponseData.data)
-  //     console.log(usersResponseData.data);
-  //   })();
-  // }, [])
+  const handleDeleteUser = async (event, userId) => {
+    // Message de confirmation du navigateur 
+    const isConfirmed = window.confirm("Êtes-vous sûr de vouloir supprimer votre compte ?");
+
+    if (isConfirmed) {
+      try {
+        // Fetch de la route OwnUser qui a des restrictions différentes de la route users basique qui sert à la route admin
+        const response = await fetch("http://localhost:3001/api/users/ownUser/" + decodedToken.dataId, {
+          method: "DELETE",
+          headers: { Authorization: "Bearer " + token }
+        });
+
+        if (response.ok) {
+          
+          console.log("Le compte a bien été supprimé");
+          
+          logoutUser();
+        } else {
+          
+          console.error("La suppression du compte a échoué");
+          
+        }
+      } catch (error) {
+        console.error("Une erreur est survenue pendant la suppression du compte:", error);
+        
+      }
+    }
+  };
+
+  const logoutUser = () => {
+    // Supprimer le jeton JWT du stockage local
+    localStorage.removeItem("jwt");
+    // Rediriger l'utilisateur vers la page d'inscription (ou toute autre page souhaitée)
+    navigate("/register");
+  };
 
 
   return (
@@ -50,10 +78,8 @@ function EditAccountPage() {
               <Link to={`/account/edit/profile/`}>
                 <button className="button1">Modifier le profil</button>
               </Link>
-              {/* Bouton pour supprimer le profil */}
-                <button className="button1">Supprimer mon profil</button>
               {/* Bouton pour supprimer le compte */}
-                <button className="button1">Supprimer mon compte</button>
+              <button className="button1" onClick={(event) => handleDeleteUser(event, user.Id)}>Supprimer mon compte</button>
             </div>
           </div>
         </div>

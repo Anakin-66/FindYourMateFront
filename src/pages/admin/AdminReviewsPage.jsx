@@ -32,11 +32,6 @@ function AdminReviewsPage() {
                 headers: { Authorization: "Bearer " + token }
             });
 
-            const reviewsResponse = await fetch('http://localhost:3001/api/reviews');
-            const reviewsResponseData = await reviewsResponse.json();
-            setReviews(reviewsResponseData);
-            console.log('Reviews after deletion:', reviewsResponseData);
-
             // Mise à jour du state avec le message de succès
             setSuccessMessage("Le commentaire a été supprimé avec succès.");
 
