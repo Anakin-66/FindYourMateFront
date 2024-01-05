@@ -8,6 +8,8 @@ function AdminUsersPage() {
 
     const [users, setUsers] = useState(null);
 
+    const [errorMessages, setErrorMessages] = useState({});
+
     const token = localStorage.getItem("jwt");
 
     const decodedToken = jwtDecode(token)
@@ -26,12 +28,25 @@ function AdminUsersPage() {
     // Fetch pour supprimer un utilisateur
     const handleDeleteUsers = async (event, usersId) => {
         // Déclaration d'une variable avec un fetch de l'api pour récupérer le delete + l'id de l'utilisateur
-        await fetch("http://localhost:3001/api/users/" + usersId, {
+        const deleteUsersResponse = await fetch("http://localhost:3001/api/users/" + usersId, {
             // La méthode "DELETE" est un delete
             method: "DELETE",
             // Seulement quelqu'un qui a un token peut supprimer les utilisateurs 
             headers: { Authorization: "Bearer " + token }
         });
+
+        // Boolean pour gérer les messages de status
+        if (deleteUsersResponse.status === 403) {
+            setErrorMessages((prevErrors) => ({
+                ...prevErrors,
+                [usersId]: `Droits insuffisants`
+            }));
+        } else {
+            setErrorMessages((prevErrors) => ({
+                ...prevErrors,
+                [usersId]: `Erreur ! `
+            }));
+        }
         // Second fetch d'api pour mettre a jour suite à une supression d'un utilisateur
         const usersResponse = await fetch('http://localhost:3001/api/users');
         const usersResponseData = await usersResponse.json();
@@ -49,6 +64,7 @@ function AdminUsersPage() {
                             return (
                                 <article>
                                     <h2>{user.username}</h2>
+                                    {errorMessages[user.id] && <p>{errorMessages[user.id]}</p>}
                                     {/* récupération du token.data, si le role de l'utilisateur n'est pas 3 alors il ne peut pas supprimer un utilisateur */}
                                     {decodedToken.data.role !== 3 && (
                                         <button className="button1" onClick={(event) => handleDeleteUsers(event, user.id)}>Supprimer l'utilisateur</button>

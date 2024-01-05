@@ -8,6 +8,7 @@ function RegisterPage() {
 
   // hook useState pour  gérer les messages
   const [message, setMessage] = useState(null);
+  // hook useNavigate pour gérer les redirections
   const navigate = useNavigate();
   // Fonction asynchrone car y'a un fetch
   const handleCreateUser = async (event) => {

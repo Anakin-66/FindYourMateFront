@@ -46,10 +46,6 @@ function EditAccountPage() {
               <Link to={`/account/create/profile`} >
                 <button className="button1">Créer un profil</button>
               </Link>
-              {/* Bouton qui redirige sur une page pour modifier le mot de passe */}
-              <Link to={`/account/edit/user/:id`}>
-                <button className="button1">Modifier le mot de passe</button>
-              </Link>
               {/* Bouton qui redirige sur une page pour modifier le profil */}
               <Link to={`/account/edit/profile/`}>
                 <button className="button1">Modifier le profil</button>
