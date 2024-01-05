@@ -28,12 +28,18 @@ function HomePage() {
 
   }, [])
 
+
   // Fonction pour calculer la moyenne d'une note associer à un profil
   const calculateAverageRating = (reviews) => {
     if (reviews.length === 0) return 0;
 
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-    return totalRating / reviews.length;
+    const averageRating = totalRating / reviews.length;
+
+    // Utiliser toFixed(1) pour arrondir la moyenne au dixième près
+    const roundedAverage = parseFloat(averageRating.toFixed(1));
+
+    return roundedAverage;
   };
 
   return (

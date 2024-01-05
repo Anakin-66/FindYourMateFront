@@ -21,10 +21,18 @@ function ProfilePage() {
 
   // Fonction pour calculer la moyenne d'une note associer à un profil
   const calculateAverageRating = (reviews) => {
+    // Vérifier si la liste de reviews est vide
     if (reviews.length === 0) return 0;
-
+    // Calculer la somme totale des notes à partir des reviews
+    // En utilisant reduce, additionne les valeurs de la propriété rating de chaque review à l'accumulateur, et retourne la somme totale. Cela permet ensuite de calculer la moyenne en divisant cette somme totale par le nombre total de reviews.
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-    return totalRating / reviews.length;
+    // Calculer la moyenne en divisant la somme totale par le nombre de reviews
+    const averageRating = totalRating / reviews.length;
+
+    // Utiliser toFixed(1) pour arrondir la moyenne au dixième près
+    const roundedAverage = parseFloat(averageRating.toFixed(1));
+    // Retourner la moyenne arrondie
+    return roundedAverage;
   };
 
 

@@ -17,6 +17,7 @@ const ProfileDetailsPage = () => {
 
   const token = localStorage.getItem("jwt");
 
+
   // Je récupère mes profils + leur id
   useEffect(() => {
     (async () => {
@@ -43,7 +44,12 @@ const ProfileDetailsPage = () => {
     if (reviews.length === 0) return 0;
 
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-    return totalRating / reviews.length;
+    const averageRating = totalRating / reviews.length;
+
+    // Utiliser toFixed(1) pour arrondir la moyenne au dixième près
+    const roundedAverage = parseFloat(averageRating.toFixed(1));
+
+    return roundedAverage;
   };
 
   // je créé une fonction, qui récupère un  id de profil
