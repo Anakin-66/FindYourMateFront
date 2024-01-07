@@ -16,14 +16,11 @@ function HomePage() {
   useEffect(() => {
 
     (async () => {
-      const reponse = await fetch(`http://localhost:3001/api/profils/`)
+      const reponse = await fetch(`http://localhost:3001/api/profils/latestProfils`)
+      console.log(reponse);
       const data = await reponse.json();
-      // Tri des profils par date de création décroissante
-      const sortedProfiles = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      // Sélection des trois premiers profils
-      const latestProfiles = sortedProfiles.slice(0, 3);
-      setProfiles(latestProfiles)
-      console.log(latestProfiles);
+      setProfiles(data)
+      console.log(data);
     })()
 
   }, [])
