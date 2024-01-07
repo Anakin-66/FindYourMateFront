@@ -48,10 +48,8 @@ function HomePage() {
       <div className="backgroundImgNoFlex">
         <h2 className="profileTitle">Profils récents</h2>
         <main className="mainProfilePage">
-          {/* Est-ce que profile contient quelque chose ? */}
           {profiles ? (
             <>
-              {/* Je fais un array map pour récupérer les profils grâce à la variable profiles de useState */}
               {profiles.map((profile) => {
                 return (
                   <article className="profileArticle">

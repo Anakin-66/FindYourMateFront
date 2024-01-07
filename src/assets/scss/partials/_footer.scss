@@ -13,3 +13,27 @@ footer {
 .discordLogo {
     width: 2%;
 }
+@media screen and (max-width: 1024px) {
+    .twitterLogo {
+        width: 4%;
+    }
+    .discordLogo {
+        width: 4%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .twitterLogo {
+        width: 6%;
+    }
+    .discordLogo {
+        width: 6%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .twitterLogo {
+        width: 6%;
+    }
+    .discordLogo {
+        width: 6%;
+    }
+}

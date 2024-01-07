@@ -25,5 +25,10 @@
     padding-bottom: 1.25em;
 }
 
-
+@media screen and (max-width: 425px) {
+    .outerContainerImg {
+        padding: 0.5em;
+        width: 50%;
+    }
+}
 

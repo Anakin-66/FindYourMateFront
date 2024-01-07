@@ -36,17 +36,54 @@
 .profileInfo {
     display: flex;
     justify-content: center;
-    flex-direction: column; /* Empile les éléments verticalement */
-    align-items: center; /* Center items vertically */
+    flex-direction: column; 
+    align-items: center; 
     gap: 10px;
   }
 
 .profileArticle {
-    width: 30%; /* Adjust the width as needed */  
+    width: 30%; 
 }
 
-// css pour l'îcone de profil 
 .profileIcon {
     width: 15%;
     border-radius: 8px;
-  }
+}
+@media screen and (max-width: 768px) {
+    .mainProfilePage {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding-bottom: 3.75em;
+    }
+
+    .profileArticle {
+        width: 80%; 
+    }
+
+    .twitterLogo {
+        width: 8%;
+    }
+    .discordLogo {
+        width: 8%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .mainProfilePage {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding-bottom: 3.75em;
+    }
+
+    .profileArticle {
+        width: 80%; 
+    }
+
+    .twitterLogo {
+        width: 8%;
+    }
+    .discordLogo {
+        width: 8%;
+    }
+}
