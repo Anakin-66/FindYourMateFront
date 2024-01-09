@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import Footer from "../../components/guest/Footer";
 import Header from "../../components/guest/Header";
 import { useEffect, useState } from "react";
@@ -6,8 +5,7 @@ import { jwtDecode } from "jwt-decode";
 
 function EditProfilePage() {
 
-    // Hook useParams pour faire le lien avec un profil id
-    const { id } = useParams();
+   
     // Hook useState pour récupérer les profils
     const [profile, setProfile] = useState(null)
     // Hook useState pour display le message

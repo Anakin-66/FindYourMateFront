@@ -25,12 +25,22 @@ import './assets/scss/partials/_mainProfiles.scss'
 import './assets/scss/partials/_homeImages.scss'
 import './assets/scss/partials/_reviewSection.scss'
 import './assets/scss/partials/_footer.scss'
+import { jwtDecode } from "jwt-decode";
 
 
+
+const token = localStorage.getItem("jwt");
+
+const decodedToken = jwtDecode(token)
+
+// if (condition) {
+  
+// }
 
 
 
 function App() {
+  console.log(decodedToken);
   return (
     <BrowserRouter>
       <Routes>
@@ -47,12 +57,16 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
 
         {/* Admin */}
-        <Route path="/admin" element={<DashboardPage />} />
-        <Route path="/admin/profils" element={<AdminProfilesPage />} />
-        <Route path="/admin/profils/update/:id" element={<AdminProfilesUpdatePage />} />
-        <Route path="/admin/users" element={<AdminUsersPage />} />
-        <Route path="/admin/users/update/:id" element={<AdminUsersUpdatePage />} />
-        <Route path="/admin/reviews/" element={<AdminReviewsPage />} />
+        {decodedToken.dataRole !== 3 && (
+          <>
+            <Route path="/admin" element={<DashboardPage />} />
+            <Route path="/admin/profils" element={<AdminProfilesPage />} />
+            <Route path="/admin/profils/update/:id" element={<AdminProfilesUpdatePage />} />
+            <Route path="/admin/users" element={<AdminUsersPage />} />
+            <Route path="/admin/users/update/:id" element={<AdminUsersUpdatePage />} />
+            <Route path="/admin/reviews/" element={<AdminReviewsPage />} />
+          </>
+        )}
       </Routes>
     </BrowserRouter >
   );
