@@ -88,7 +88,7 @@ function EditProfilePage() {
                                 </div>
                                 <div>
                                     <label>
-                                        Bio
+                                        Description
                                         <textarea className="labelDescribe" type="text" name="profileBio" defaultValue={profile.profilBio} />
                                     </label>
                                 </div>

@@ -10,6 +10,7 @@ import EditProfilePage from "./pages/guest/EditProfilePage";
 import EditUserPage from "./pages/guest/EditUserPage";
 import RegisterPage from "./pages/guest/RegisterPage";
 import CreateProfilePage from "./pages/guest/CreateProfilePage";
+import { jwtDecode } from "jwt-decode";
 // Import côté admin
 import DashboardPage from "./pages/admin/DashboardPage";
 import AdminProfilesPage from "./pages/admin/AdminProfilesPage";
@@ -25,22 +26,21 @@ import './assets/scss/partials/_mainProfiles.scss'
 import './assets/scss/partials/_homeImages.scss'
 import './assets/scss/partials/_reviewSection.scss'
 import './assets/scss/partials/_footer.scss'
-import { jwtDecode } from "jwt-decode";
-
-
-
-const token = localStorage.getItem("jwt");
-
-const decodedToken = jwtDecode(token)
-
-// if (condition) {
-  
-// }
-
-
+import { useEffect, useState } from "react";
 
 function App() {
-  console.log(decodedToken);
+
+  const [decodedToken, setDecodedToken] = useState(null)
+  
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+
+    if (token) {
+      const decodedData = jwtDecode(token)
+      setDecodedToken(decodedData)
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -57,7 +57,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
 
         {/* Admin */}
-        {decodedToken.dataRole !== 3 && (
+        {decodedToken && decodedToken.dataRole !== 3 && (
           <>
             <Route path="/admin" element={<DashboardPage />} />
             <Route path="/admin/profils" element={<AdminProfilesPage />} />

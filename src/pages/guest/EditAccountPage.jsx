@@ -10,6 +10,7 @@ function EditAccountPage() {
   const [user, setUser] = useState(null);
 
   const token = localStorage.getItem("jwt");
+  console.log(token);
 
   const decodedToken = jwtDecode(token)
   console.log(decodedToken);
@@ -38,18 +39,18 @@ function EditAccountPage() {
         });
 
         if (response.ok) {
-          
+
           console.log("Le compte a bien été supprimé");
-          
+
           logoutUser();
         } else {
-          
+
           console.error("La suppression du compte a échoué");
-          
+
         }
       } catch (error) {
         console.error("Une erreur est survenue pendant la suppression du compte:", error);
-        
+
       }
     }
   };
